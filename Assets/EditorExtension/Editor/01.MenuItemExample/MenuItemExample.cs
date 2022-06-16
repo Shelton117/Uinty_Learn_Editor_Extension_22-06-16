@@ -16,5 +16,17 @@ namespace EditorExtension.Editor.MenuItemExample
         {
             Application.OpenURL("https://bilibili.com");
         }
+
+        [MenuItem("EditorExtension/01.Menu/03.Open PersistenDataPath")]
+        static void OpenPersistenDataPath()
+        {
+            EditorUtility.RevealInFinder(Application.persistentDataPath);
+        }
+
+        [MenuItem("EditorExtension/01.Menu/04.Open DesignerFolder")]
+        static void OpenDesignerFolder()
+        {
+            EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets","Library"));
+        }
     }
 }
