@@ -68,5 +68,29 @@ namespace EditorExtension.Editor.MenuItemExample
         {
             EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets", "Library"));
         }
+
+        [MenuItem("EditorExtension/01.Menu/06.Hello EditorWithShotCut _c",validate = true)]
+        static bool HelloEditorWithShotCutValidate()
+        {
+            return mOpenShotCut;
+        }
+
+        [MenuItem("EditorExtension/01.Menu/07.Open BilibiliWithShotCut %e",validate = true)]
+        static bool OpenBilibiliWithShotCutValidate()
+        {
+            return mOpenShotCut;
+        }
+
+        [MenuItem("EditorExtension/01.Menu/08.Open PersistenDataPathWithShotCut %#t",validate = true)]
+        static bool OpenPersistenDataPathWithShotCutValidate()
+        {
+            return mOpenShotCut;
+        }
+
+        [MenuItem("EditorExtension/01.Menu/09.Open DesignerFolderWithShotCut &r",validate = true)]
+        static bool OpenDesignerFolderWithShotCutValidate()
+        {
+            return mOpenShotCut;
+        }
     }
 }
