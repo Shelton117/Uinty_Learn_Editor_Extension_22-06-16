@@ -28,5 +28,15 @@ namespace EditorExtension.Editor.MenuItemExample
         {
             EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets","Library"));
         }
+
+        private static bool mOpenShotCut = false;
+
+        [MenuItem("EditorExtension/01.Menu/05.ToggleShotCut")]
+        static void ToggleShotCut()
+        {
+            mOpenShotCut = !mOpenShotCut;
+
+            Menu.SetChecked("EditorExtension/01.Menu/05.ToggleShotCut", mOpenShotCut);
+        }
     }
 }
