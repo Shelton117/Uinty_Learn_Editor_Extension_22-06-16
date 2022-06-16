@@ -8,7 +8,7 @@ namespace EditorExtension.Editor.MenuItemExample
         [MenuItem("EditorExtension/01.Menu/01.Hello Editor")]
         static void HelloEditor()
         {
-            Debug.Log("HelloEditor");
+            Debug.Log("Hello Editor");
         }
 
         [MenuItem("EditorExtension/01.Menu/02.Open Bilibili")]
@@ -37,6 +37,36 @@ namespace EditorExtension.Editor.MenuItemExample
             mOpenShotCut = !mOpenShotCut;
 
             Menu.SetChecked("EditorExtension/01.Menu/05.ToggleShotCut", mOpenShotCut);
+        }
+
+        /// <summary>
+        /// # - Shift
+        /// & - Alt
+        /// % - Ctrl/Command
+        /// _a-zA-Z - a-zA-Z
+        /// </summary>
+        [MenuItem("EditorExtension/01.Menu/06.Hello EditorWithShotCut _c")]
+        static void HelloEditorWithShotCut()
+        {
+            Debug.Log("Hello Editor");
+        }
+
+        [MenuItem("EditorExtension/01.Menu/07.Open BilibiliWithShotCut %e")]
+        static void OpenBilibiliWithShotCut()
+        {
+            Application.OpenURL("https://bilibili.com");
+        }
+
+        [MenuItem("EditorExtension/01.Menu/08.Open PersistenDataPathWithShotCut %#t")]
+        static void OpenPersistenDataPathWithShotCut()
+        {
+            EditorUtility.RevealInFinder(Application.persistentDataPath);
+        }
+
+        [MenuItem("EditorExtension/01.Menu/09.Open DesignerFolderWithShotCut &r")]
+        static void OpenDesignerFolderWithShotCut()
+        {
+            EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets", "Library"));
         }
     }
 }
