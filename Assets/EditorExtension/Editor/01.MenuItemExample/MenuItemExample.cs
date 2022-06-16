@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace EditorExtension.Editor.MenuItemExample
 {
-    public class MenuItemExample
+    public static class MenuItemExample
     {
         [MenuItem("EditorExtension/01.Menu/01.Hello Editor")]
         static void HelloEditor()
@@ -48,25 +48,25 @@ namespace EditorExtension.Editor.MenuItemExample
         [MenuItem("EditorExtension/01.Menu/06.Hello EditorWithShotCut _c")]
         static void HelloEditorWithShotCut()
         {
-            Debug.Log("Hello Editor");
+            EditorApplication.ExecuteMenuItem("EditorExtension/01.Menu/01.Hello Editor");
         }
 
         [MenuItem("EditorExtension/01.Menu/07.Open BilibiliWithShotCut %e")]
         static void OpenBilibiliWithShotCut()
         {
-            Application.OpenURL("https://bilibili.com");
+            EditorApplication.ExecuteMenuItem("EditorExtension/01.Menu/02.Open Bilibili");
         }
 
         [MenuItem("EditorExtension/01.Menu/08.Open PersistenDataPathWithShotCut %#t")]
         static void OpenPersistenDataPathWithShotCut()
         {
-            EditorUtility.RevealInFinder(Application.persistentDataPath);
+            EditorApplication.ExecuteMenuItem("EditorExtension/01.Menu/03.Open PersistenDataPath");
         }
 
         [MenuItem("EditorExtension/01.Menu/09.Open DesignerFolderWithShotCut &r")]
         static void OpenDesignerFolderWithShotCut()
         {
-            EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets", "Library"));
+            EditorApplication.ExecuteMenuItem("EditorExtension/01.Menu/04.Open DesignerFolder");
         }
 
         [MenuItem("EditorExtension/01.Menu/06.Hello EditorWithShotCut _c",validate = true)]
@@ -91,6 +91,11 @@ namespace EditorExtension.Editor.MenuItemExample
         static bool OpenDesignerFolderWithShotCutValidate()
         {
             return mOpenShotCut;
+        }
+
+        static MenuItemExample()
+        {
+            Menu.SetChecked("EditorExtension/01.Menu/05.ToggleShotCut", mOpenShotCut);
         }
     }
 }
