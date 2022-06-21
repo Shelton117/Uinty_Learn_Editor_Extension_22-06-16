@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -8,6 +10,8 @@ namespace EditorFramework.Editor
 {
     public class RootWindow : EditorWindow
     {
+        private IEnumerable<Type> mEditorWindowTypes;
+
         [MenuItem("EditorFramework/Open %#e")]
         private static void Open()
         {
@@ -20,13 +24,24 @@ namespace EditorFramework.Editor
             var m_Parent = editorWindowType.GetField("m_Parent", BindingFlags.Instance | BindingFlags.NonPublic);
 
             // C#·´Éä£¨https://docs.microsoft.com/zh-cn/dotnet/api/system.appdomain.getassemblies?view=net-6.0£©
-            var editorWindowTypes = AppDomain.CurrentDomain.GetAssemblies()
+            mEditorWindowTypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes())
                 .Where(type => type.IsSubclassOf(editorWindowType));
+        }
 
-            foreach (var windowType in editorWindowTypes)
+        private void OnGUI()
+        {
+            foreach (var mEditorWindowType in mEditorWindowTypes)
             {
-                Debug.Log(windowType.Name);
+                GUILayout.BeginHorizontal("box");
+                {
+                    GUILayout.Label(mEditorWindowType.Name);
+                    if (GUILayout.Button("Open", GUILayout.Width(80)))
+                    {
+                        GetWindow(mEditorWindowType).Show();
+                    }
+                }
+                GUILayout.EndHorizontal();
             }
         }
     }
