@@ -9,9 +9,12 @@ namespace EditorExtension.Editor.IMGUIExample
 
         enum PageID
         {
-            basic,
+            Basic,
+            Enabled,
+            Rotate,
+            Scale,
+            Color,
             Other,
-
         }
         
         [MenuItem("EditorExtension/02.IMGUI/01.GUILayoutExample")]
@@ -20,14 +23,30 @@ namespace EditorExtension.Editor.IMGUIExample
             GetWindow<GUILayoutExample>().Show();
         }
 
-        private PageID mCurrentPageId = PageID.basic;
+        private PageID mCurrentPageId = PageID.Basic;
 
         private void OnGUI()
         {
             mCurrentPageId = (PageID) GUILayout.Toolbar((int) mCurrentPageId, Enum.GetNames(typeof(PageID)));
-            if (mCurrentPageId == PageID.basic)
+            if (mCurrentPageId == PageID.Basic)
             {
                 Basic();
+            }
+            else if (mCurrentPageId == PageID.Enabled)
+            {
+                Enabled();
+            }
+            else if (mCurrentPageId == PageID.Rotate)
+            {
+                Rotate();
+            }
+            else if (mCurrentPageId == PageID.Scale)
+            {
+                Scale();
+            }
+            else if (mCurrentPageId == PageID.Color)
+            {
+                Color();
             }
             else if (mCurrentPageId == PageID.Other)
             {
@@ -156,6 +175,74 @@ namespace EditorExtension.Editor.IMGUIExample
                 GUILayout.EndHorizontal();
             }
             GUILayout.EndScrollView();
+        }
+
+        #endregion
+
+        #region Enabled
+
+        private bool mEnableInteractive = true;
+
+        private void Enabled()
+        {
+            mEnableInteractive = GUILayout.Toggle(mEnableInteractive, "是否可交互");
+
+            if (GUI.enabled != mEnableInteractive)
+            {
+                GUI.enabled = mEnableInteractive;
+            }
+
+            Basic();
+        }
+
+        #endregion
+
+        #region Rotate
+
+        private bool mOpenRotateEffect;
+        private void Rotate()
+        {
+            mOpenRotateEffect = GUILayout.Toggle(mOpenRotateEffect, "是否旋转");
+
+            if (mOpenRotateEffect)
+            {
+                GUIUtility.RotateAroundPivot(45, Vector2.zero);
+            }
+
+            Basic();
+        }
+
+        #endregion
+
+        #region Scale
+
+        private bool mOpenScaleEffect;
+        private void Scale()
+        {
+            mOpenScaleEffect = GUILayout.Toggle(mOpenScaleEffect, "是否缩放");
+
+            if (mOpenScaleEffect)
+            {
+                GUIUtility.ScaleAroundPivot(new Vector2(1.5f,1.5f), Vector2.zero);
+            }
+
+            Basic();
+        }
+
+        #endregion
+
+        #region Color
+
+        private bool mOpenColorEffect;
+        private void Color()
+        {
+            mOpenColorEffect = GUILayout.Toggle(mOpenColorEffect, "是否变换颜色");
+            if (mOpenColorEffect)
+            {
+                GUI.color = UnityEngine.Color.blue;
+            }
+
+            Basic();
         }
 
         #endregion
