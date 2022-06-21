@@ -6,11 +6,36 @@ namespace EditorExtension.Editor.IMGUIExample
 {
     public class GUILayoutExample : EditorWindow
     {
+
+        enum PageID
+        {
+            basic,
+            Other,
+
+        }
+        
         [MenuItem("EditorExtension/02.IMGUI/01.GUILayoutExample")]
         static void OpenGUILayoutExample()
         {
             GetWindow<GUILayoutExample>().Show();
         }
+
+        private PageID mCurrentPageId = PageID.basic;
+
+        private void OnGUI()
+        {
+            mCurrentPageId = (PageID) GUILayout.Toolbar((int) mCurrentPageId, Enum.GetNames(typeof(PageID)));
+            if (mCurrentPageId == PageID.basic)
+            {
+                Basic();
+            }
+            else if (mCurrentPageId == PageID.Other)
+            {
+                
+            }
+        }
+
+        #region Basic
 
         private string mTextFieldValue = "TextField";
         private string mTextAreaValue;
@@ -21,7 +46,7 @@ namespace EditorExtension.Editor.IMGUIExample
         private bool mToggleValue;
         private int mSelectedIndex;
 
-        private void OnGUI()
+        private void Basic()
         {
             mScrollPostion = GUILayout.BeginScrollView(mScrollPostion);
             {
@@ -68,7 +93,7 @@ namespace EditorExtension.Editor.IMGUIExample
                     GUILayout.BeginHorizontal();
                     {
                         GUILayout.Label("RepeatButton:");
-                        if (GUILayout.RepeatButton("RepeatButton",GUILayout.Width(150), GUILayout.Height(150)))
+                        if (GUILayout.RepeatButton("RepeatButton", GUILayout.Width(150), GUILayout.Height(150)))
                         {
                             Debug.Log("RepeatButton Clicked");
                         }
@@ -98,7 +123,7 @@ namespace EditorExtension.Editor.IMGUIExample
 
                     GUILayout.BeginArea(new Rect(0, 0, 100, 100));
                     {
-                        GUI.Label(new Rect(0,0,20,20), "Area");
+                        GUI.Label(new Rect(0, 0, 20, 20), "Area");
                     }
                     GUILayout.EndArea();
 
@@ -109,7 +134,7 @@ namespace EditorExtension.Editor.IMGUIExample
 
                     GUILayout.BeginHorizontal();
                     {
-                        mToolbarIndex = GUILayout.Toolbar(mToolbarIndex,new []{"1","2","3","4"});
+                        mToolbarIndex = GUILayout.Toolbar(mToolbarIndex, new[] { "1", "2", "3", "4" });
                     }
                     GUILayout.EndHorizontal();
 
@@ -126,11 +151,13 @@ namespace EditorExtension.Editor.IMGUIExample
                     }
                     GUILayout.EndHorizontal();
 
-                    mSelectedIndex = GUILayout.SelectionGrid(mSelectedIndex, new[] {"1", "2", "3", "4"}, 3);
+                    mSelectedIndex = GUILayout.SelectionGrid(mSelectedIndex, new[] { "1", "2", "3", "4" }, 3);
                 }
                 GUILayout.EndHorizontal();
             }
             GUILayout.EndScrollView();
         }
+
+        #endregion
     }
 }
