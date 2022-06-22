@@ -14,6 +14,7 @@ namespace EditorExtension.Editor
         public void Draw()
         {
             GUI.Label(mLabelRect,"Label:Hello GUI API");
+
             mTextFieldValue = GUI.TextField(mTextFieldRect, mTextFieldValue);
             mTextAreaValue = GUI.TextArea(mTextAreaRect, mTextAreaValue);
         }

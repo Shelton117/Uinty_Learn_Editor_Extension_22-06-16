@@ -35,8 +35,10 @@ namespace EditorExtension.Editor.IMGUIExample
 
         private void OnGUI()
         {
+            // 从枚举中获取页签id（int）和名称（string[]）
             mCurrentAPIMode = (APIMode)GUILayout.Toolbar((int)mCurrentAPIMode, Enum.GetNames(typeof(APIMode)));
             mCurrentPageId = (PageID) GUILayout.Toolbar((int) mCurrentPageId, Enum.GetNames(typeof(PageID)));
+
             if (mCurrentPageId == PageID.Basic)
             {
                 Basic();
@@ -59,7 +61,7 @@ namespace EditorExtension.Editor.IMGUIExample
             }
             else if (mCurrentPageId == PageID.Other)
             {
-                
+                // 函数体为空，对照
             }
         }
 
@@ -82,7 +84,6 @@ namespace EditorExtension.Editor.IMGUIExample
         #region Enabled
 
         private bool mEnableInteractive = true;
-
         private void Enabled()
         {
             mEnableInteractive = GUILayout.Toggle(mEnableInteractive, "是否可交互");

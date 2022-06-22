@@ -16,8 +16,10 @@ namespace EditorExtension.Editor
 
         public void Draw()
         {
+            // 滚动区域
             mScrollPostion = GUILayout.BeginScrollView(mScrollPostion);
             {
+                // 垂直分布，分布类型为box
                 GUILayout.BeginVertical("box");
                 {
                     GUILayout.Label("label:Hello IMGUI");
