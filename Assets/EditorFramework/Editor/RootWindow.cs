@@ -26,7 +26,8 @@ namespace EditorFramework.Editor
             // 获得所有窗口类型名称的接口
             mEditorWindowTypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsSubclassOf(editorWindowType));
+                .Where(type => type.IsSubclassOf(editorWindowType)) // 打开全部窗口
+                .Where(type => type.GetCustomAttribute<CustomEditorWindowAttribute>() != null); // 打开自定义的窗口
         }
 
         private void OnGUI()
