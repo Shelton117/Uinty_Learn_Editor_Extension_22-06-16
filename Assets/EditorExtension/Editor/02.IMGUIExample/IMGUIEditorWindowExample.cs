@@ -13,6 +13,7 @@ namespace EditorExtension.Editor.IMGUIExample
         {
             GUILayout,
             GUI,
+            EditorGUI,
         }
 
         enum PageID
@@ -27,8 +28,10 @@ namespace EditorExtension.Editor.IMGUIExample
 
         private APIMode mCurrentAPIMode = APIMode.GUILayout;
         private PageID mCurrentPageId = PageID.Basic;
+
         private GUILayoutAPI mGUILayoutAPI = new GUILayoutAPI();
         private GUIAPI mGUIAPI = new GUIAPI();
+        private EditorGUIAPI mEditorGUIAPI = new EditorGUIAPI();
 
         [MenuItem("EditorExtension/02.IMGUI/01.IMGUIEditorWindowExample")]
         static void OpenGUILayoutExample()
@@ -79,6 +82,10 @@ namespace EditorExtension.Editor.IMGUIExample
             else if (mCurrentAPIMode == APIMode.GUI)
             {
                 mGUIAPI.Draw();
+            }
+            else if (mCurrentAPIMode == APIMode.EditorGUI)
+            {
+                mEditorGUIAPI.Draw();
             }
         }
 
