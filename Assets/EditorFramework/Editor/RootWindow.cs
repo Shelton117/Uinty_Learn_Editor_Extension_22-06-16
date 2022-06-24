@@ -19,15 +19,11 @@ namespace EditorFramework.Editor
 
         private void OnEnable()
         {
-            var editorWindowType = typeof(EditorWindow);
-            var m_Parent = editorWindowType.GetField("m_Parent", BindingFlags.Instance | BindingFlags.NonPublic);
+            var m_Parent = typeof(EditorWindow).GetField("m_Parent", BindingFlags.Instance | BindingFlags.NonPublic);
 
             // TODO：C#反射（https://docs.microsoft.com/zh-cn/dotnet/api/system.appdomain.getassemblies?view=net-6.0）
             // 获得所有窗口类型名称的接口
-            mEditorWindowTypes = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsSubclassOf(editorWindowType)) // 打开全部窗口
-                .Where(type => type.GetCustomAttribute<CustomEditorWindowAttribute>() != null); // 打开自定义的窗口
+            mEditorWindowTypes = typeof(EditorWindow).GetSubTypesWithClassAttributeInAssemblies<CustomEditorWindowAttribute>(); // 打开自定义的窗口
         }
 
         private void OnGUI()
