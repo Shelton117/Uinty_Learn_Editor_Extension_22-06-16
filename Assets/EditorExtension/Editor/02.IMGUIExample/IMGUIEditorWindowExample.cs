@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace EditorExtension.Editor.IMGUIExample
 {
+    /// <summary>
+    /// 非运行状态下的IMGUI载体：EditorWindow
+    /// </summary>
     public class IMGUIEditorWindowExample : EditorWindow
     {
         enum APIMode
