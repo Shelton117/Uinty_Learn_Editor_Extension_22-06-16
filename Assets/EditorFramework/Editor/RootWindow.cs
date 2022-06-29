@@ -21,7 +21,6 @@ namespace EditorFramework.Editor
         {
             var m_Parent = typeof(EditorWindow).GetField("m_Parent", BindingFlags.Instance | BindingFlags.NonPublic);
 
-            // TODO：C#反射（https://docs.microsoft.com/zh-cn/dotnet/api/system.appdomain.getassemblies?view=net-6.0）
             // 获得所有窗口类型名称的接口
             mEditorWindowTypes = typeof(EditorWindow).GetSubTypesWithClassAttributeInAssemblies<CustomEditorWindowAttribute>(); // 打开自定义的窗口
         }
