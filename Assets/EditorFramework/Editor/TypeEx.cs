@@ -8,7 +8,7 @@ namespace EditorFramework.Editor
     public static class TypeEx
     {
         /// <summary>
-        /// 
+        /// 获取所有路径的结果
         /// </summary>
         /// <param name="self"></param>
         /// <returns></returns>
@@ -19,6 +19,12 @@ namespace EditorFramework.Editor
                 .Where(type => type.IsSubclassOf(self));
         }
 
+        /// <summary>
+        /// 根据TClassAttribute 筛选
+        /// </summary>
+        /// <typeparam name="TClassAttribute">筛选类型</typeparam>
+        /// <param name="self"></param>
+        /// <returns></returns>
         public static IEnumerable<Type> GetSubTypesWithClassAttributeInAssemblies<TClassAttribute>(this Type self) 
             where TClassAttribute : Attribute
         {
