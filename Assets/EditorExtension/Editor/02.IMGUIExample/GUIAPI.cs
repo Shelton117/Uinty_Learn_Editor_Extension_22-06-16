@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EditorExtension.Editor
 {
+    /// <summary>
+    /// 需要自己定rect的GUI api
+    /// </summary>
     public class GUIAPI : MonoBehaviour
     {
         private Rect mLabelRect = new Rect(20, 60, 200, 20);

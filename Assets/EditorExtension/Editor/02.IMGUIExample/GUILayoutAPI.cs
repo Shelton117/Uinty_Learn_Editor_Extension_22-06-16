@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace EditorExtension.Editor
 {
+    /// <summary>
+    /// 带自适应的GUI api
+    /// </summary>
     public class GUILayoutAPI : MonoBehaviour
     {
         private string mTextFieldValue = "TextField";
