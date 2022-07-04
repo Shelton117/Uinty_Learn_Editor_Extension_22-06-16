@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EditorExtension.Editor
+namespace EditorExtension.Editor.IMGUIExample
 {
     /// <summary>
     /// 带自适应的GUI api
