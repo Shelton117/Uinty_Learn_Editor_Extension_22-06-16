@@ -22,7 +22,9 @@ namespace EditorFramework.Editor
             var m_Parent = typeof(EditorWindow).GetField("m_Parent", BindingFlags.Instance | BindingFlags.NonPublic);
 
             // 获得所有窗口类型名称的接口
-            mEditorWindowTypes = typeof(EditorWindow).GetSubTypesWithClassAttributeInAssemblies<CustomEditorWindowAttribute>(); // 打开自定义的窗口
+            mEditorWindowTypes = typeof(EditorWindow)
+                .GetSubTypesWithClassAttributeInAssemblies<CustomEditorWindowAttribute>()  // 打开自定义的窗口 <CustomEditorWindowAttribute>
+                .OrderBy(type=>type.GetCustomAttribute<CustomEditorWindowAttribute>().RenderOrder);  // 根据RenderOrder排序
         }
 
         private void OnGUI()
