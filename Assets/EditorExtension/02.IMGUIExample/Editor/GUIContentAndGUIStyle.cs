@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorExtension.Editor.IMGUIExample
+namespace EditorExtension.IMGUIExample.Editor
 {
     public class GUIContentAndGUIStyle : EditorWindow
     {

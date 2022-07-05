@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EditorExtension.Editor.IMGUIExample
+namespace EditorExtension.IMGUIExample.Editor
 {
     /// <summary>
     /// 需要自己定rect的GUI api

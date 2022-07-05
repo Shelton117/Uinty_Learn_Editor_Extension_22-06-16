@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
 
-namespace EditorExtension.Editor.IMGUIExample
+namespace EditorExtension.IMGUIExample.Editor
 {
     public class EditorGUILayoutAPI : MonoBehaviour
     {

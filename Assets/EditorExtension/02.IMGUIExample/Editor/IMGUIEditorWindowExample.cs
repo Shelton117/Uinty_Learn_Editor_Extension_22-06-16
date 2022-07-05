@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorExtension.Editor.IMGUIExample
+namespace EditorExtension.IMGUIExample.Editor
 {
     /// <summary>
     /// 非运行状态下的IMGUI载体：EditorWindow

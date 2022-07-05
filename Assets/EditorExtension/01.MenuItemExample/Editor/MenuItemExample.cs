@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace EditorExtension.Editor.MenuItemExample
+namespace EditorExtension.MenuItemExample.Editor
 {
     public static class MenuItemExample
     {
