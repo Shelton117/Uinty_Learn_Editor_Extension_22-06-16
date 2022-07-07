@@ -11,28 +11,18 @@ namespace EditorFramework.Example.FolderField.Editor
     [CustomEditorWindow(5)]
     public class FolderFieldExample : EditorWindow
     {
-        private string mPath = "Choose Folder";
+        private EditorFramework.Editor.FolderField mFolderField;
+
+        private void OnEnable()
+        {
+            mFolderField = new EditorFramework.Editor.FolderField();
+        }
 
         private void OnGUI()
         {
+            GUILayout.Label("Folder Field");
             var rect = EditorGUILayout.GetControlRect(GUILayout.Height(20));
-            var rects = rect.VerticalSplit(rect.width - 30);
-            var leftRect = rects[0];
-            var rightRect = rects[1];
-
-            GUI.Label(leftRect, mPath);
-            if (GUI.Button(rightRect, GUIContents.Folder))
-            {
-                mPath = EditorUtility.OpenFolderPanel("Open Folder", Application.dataPath, "");
-                Debug.Log(mPath);
-            }
-
-            // ÍÏ×§²¿·Ö
-            var dragInfo = EditorFramework.Editor.DrapAndDropTool.Drag(Event.current, rect);
-            if (dragInfo.enterArea && dragInfo.complete && !dragInfo.dragging)
-            {
-                mPath = dragInfo.paths[0];
-            }
+            mFolderField.OnGUI(rect);
         }
     }
 }

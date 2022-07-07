@@ -3,7 +3,7 @@ using UnityEngine;
 namespace EditorFramework.Editor
 {
     /// <summary>
-    /// Rect 扩展方法
+    /// Rect（静态）扩展
     /// </summary>
     public static class RectExtension
     {
