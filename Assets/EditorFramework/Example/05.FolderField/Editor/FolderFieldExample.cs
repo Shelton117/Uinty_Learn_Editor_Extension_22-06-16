@@ -6,7 +6,7 @@ namespace EditorFramework.Example.FolderField.Editor
 {
     /// <summary>
     /// 路径选择的脚本
-    /// 包含按钮选择和拖拽
+    /// 包含按钮选择和拖拽（已封装，FolderField）
     /// </summary>
     [CustomEditorWindow(5)]
     public class FolderFieldExample : EditorWindow
