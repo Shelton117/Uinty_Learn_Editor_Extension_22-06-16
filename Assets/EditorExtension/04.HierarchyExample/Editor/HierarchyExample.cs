@@ -16,7 +16,7 @@ namespace EditorExtension.HierarchyExample.Editor
         }
 
         private static bool mCustomHierarchyEnable = false;
-        private const string PATH = "EditorExtension/03.Hierarchy/Enable Custom Hierarchy";
+        private const string PATH = "EditorExtension/02.IMGUI/03.Enable Custom Hierarchy";
 
         [MenuItem(PATH)]
         private static void EnableCustomHierarchy()
