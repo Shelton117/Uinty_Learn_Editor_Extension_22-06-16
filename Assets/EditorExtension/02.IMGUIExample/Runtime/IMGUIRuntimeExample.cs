@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EditorExtension.Runtime
+namespace EditorExtension.IMGUIExample.Runtime
 {
     /// <summary>
     /// 运行场景中的两个api调用
