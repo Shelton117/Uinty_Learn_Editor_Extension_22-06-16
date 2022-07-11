@@ -38,8 +38,7 @@ namespace EditorFramework.Example.SplitView.Editor
 
         private void OnGUI()
         {
-            var position = new Rect(Vector2.zero, this.position.size);
-            mSplitView.OnGUI(position);
+            mSplitView.OnGUI(this.LocalPostion().Zoom(-10, RectExtension.AnchorType.MiddleCenter));
         }
     }
 }
