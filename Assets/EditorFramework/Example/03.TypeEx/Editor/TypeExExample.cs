@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EditorFramework.Example.TypeEx.Editor
 {
-    [CustomEditorWindow(3)]
+    [CustomEditorWindow((int)ExampleIndex.TypeEx)]
     public class TypeExExample : EditorWindow
     {
         public class DescriptionBase

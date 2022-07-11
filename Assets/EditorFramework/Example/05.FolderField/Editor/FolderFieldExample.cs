@@ -8,7 +8,7 @@ namespace EditorFramework.Example.FolderField.Editor
     /// 路径选择的脚本
     /// 包含按钮选择和拖拽（已封装，FolderField）
     /// </summary>
-    [CustomEditorWindow(5)]
+    [CustomEditorWindow((int)ExampleIndex.FolderField)]
     public class FolderFieldExample : EditorWindow
     {
         private EditorFramework.Editor.FolderField mFolderField;

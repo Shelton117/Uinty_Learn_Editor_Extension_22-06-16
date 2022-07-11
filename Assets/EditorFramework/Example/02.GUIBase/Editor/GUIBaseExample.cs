@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EditorFramework.Example.GUIBase.Editor
 {
-    [CustomEditorWindow(2)]
+    [CustomEditorWindow((int)ExampleIndex.GUIBase)]
     public class GUIBaseExample : EditorWindow
     {
         public class Label : EditorFramework.Editor.GUIBase

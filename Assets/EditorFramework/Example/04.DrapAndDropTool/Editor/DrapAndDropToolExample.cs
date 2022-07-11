@@ -7,7 +7,7 @@ namespace EditorFramework.Example.DrapAndDropTool.Editor
     /// <summary>
     /// ÍÏ×§Ê¾Àý
     /// </summary>
-    [CustomEditorWindow(4)]
+    [CustomEditorWindow((int)ExampleIndex.DrapAndDropTool)]
     public class DrapAndDropToolExample : EditorWindow
     {
         /// <summary>

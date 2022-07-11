@@ -2,6 +2,10 @@ using System;
 
 namespace EditorFramework.Editor
 {
+    /// <summary>
+    /// 自定义编辑器扩展属性
+    /// 标记
+    /// </summary>
     public class CustomEditorWindowAttribute : Attribute
     {
         /// <summary>
