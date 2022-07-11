@@ -53,7 +53,7 @@ namespace EditorExtension.ProjectExample.GUI.Editor
         {
             try
             {
-                var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                var assetPath = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
                 var files = Directory.GetFiles(assetPath);
                 var countLabelRect = selectionRect;
                 countLabelRect.x = 300;
