@@ -1,4 +1,3 @@
-using System;
 using EditorFramework.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -15,7 +14,8 @@ namespace EditorFramework.Example.SplitView.Editor
 
         private void OnEnable()
         {
-            mSplitView = new EditorFramework.Editor.SplitView();
+            mSplitView = new EditorFramework.Editor.SplitView(RectExtension.SplitType.Horizontal);
+
             mSplitView.FirstArea += SplitViewOnFirstArea;
             mSplitView.SecondArea += SplitViewOnSecondArea;
         }
@@ -28,11 +28,13 @@ namespace EditorFramework.Example.SplitView.Editor
 
         private void SplitViewOnFirstArea(Rect obj)
         {
+            obj.DrawOutline(2, Color.white);
             GUI.Box(obj, "First");
         }
 
         private void SplitViewOnSecondArea(Rect obj)
         {
+            obj.DrawOutline(2, Color.cyan);
             GUI.Box(obj, "Second");
         }
 

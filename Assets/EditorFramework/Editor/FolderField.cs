@@ -21,6 +21,7 @@ namespace EditorFramework.Editor
         public string Folder;
         public string Title;
         public string DefaultName;
+        public RectExtension.SplitType SplitType = RectExtension.SplitType.Vertical;
 
         public void SetPath(string path)
         {
@@ -36,7 +37,7 @@ namespace EditorFramework.Editor
         {
             base.OnGUI(position);
 
-            var rects = position.VerticalSplit(position.width - 30);
+            var rects = position.Split(SplitType, position.width - 30);
             var leftRect = rects[0];
             var rightRect = rects[1];
 
