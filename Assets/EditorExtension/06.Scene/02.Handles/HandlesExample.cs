@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EditorExtension.Handles
+namespace EditorExtension.Scene.Handles
 {
     public class HandlesExample : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorExtension.Handles.Editor
+namespace EditorExtension.Scene.Handles.Editor
 {
     [CustomEditor(typeof(HandlesExample))]
     public class HandlesExampleEditor : UnityEditor.Editor
