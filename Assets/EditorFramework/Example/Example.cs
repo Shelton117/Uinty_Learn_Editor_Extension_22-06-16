@@ -12,5 +12,6 @@ namespace EditorFramework.Example
         DrapAndDropTool = 4,
         FolderField = 5,
         SplitView = 6,
+        XMLGUI = 7,
     }
 }
