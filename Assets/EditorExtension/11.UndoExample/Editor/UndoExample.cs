@@ -4,7 +4,7 @@ using UnityEngine;
 namespace EditorExtension.UndoExample.Editor
 {
     /// <summary>
-    /// 
+    /// ¿É³·Ïú²Ù×÷
     /// </summary>
     public class UndoExample : MonoBehaviour
     {
