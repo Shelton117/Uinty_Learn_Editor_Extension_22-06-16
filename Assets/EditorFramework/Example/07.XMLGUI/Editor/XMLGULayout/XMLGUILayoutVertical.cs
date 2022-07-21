@@ -2,17 +2,17 @@ using UnityEngine;
 
 namespace EditorFramework.Example.XMLGUI.Editor
 {
-    public class XMLGUILayoutHorizontal : XMLGUIContainerBase
+    public class XMLGUILayoutVertical : XMLGUIContainerBase
     {
         public override void OnGUI(Rect position)
         {
             base.OnGUI(position);
 
-            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
             {
                 Xmlgui.Draw();
             }
-            GUILayout.EndHorizontal();
+            GUILayout.EndVertical();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
         /// 解析字符串的内容
         /// </summary>
         /// <param name="xmlElement">xml标签内的值以及标签里的属性</param>
-        public virtual void ParseXML(XmlElement xmlElement)
+        public virtual void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
             var id = xmlElement.GetAttribute("id");
 

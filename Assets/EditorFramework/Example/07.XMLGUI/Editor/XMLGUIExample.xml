@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GUI>
-  <LayoutHorizontal id="firstLine">
-    <Label id="label1" x="0" y ="0" width="100" height="40">Hello XMLGUI</Label>
-    <Label id="label2" x="0" y ="50" width="100" height="40">Hello XMLGUI</Label>
-    <Label id="label3" x="0" y ="100" width="100" height="40">Hello XMLGUI</Label>
-    <Button id="loginButton" x="0" y ="150" width="100" height="40">Button Click</Button>
-  </LayoutHorizontal>
+  <LayoutVertical>
+    <LayoutHorizontal>
+      <LayoutLabel id="label1">Hello XMLGUILayout</LayoutLabel>
+      <LayoutLabel id="label2">Hello XMLGUILayout2</LayoutLabel>
+      <LayoutLabel id="label3">Hello XMLGUILayout3</LayoutLabel>
+      <LayoutButton id="loginButton">Button Click</LayoutButton>
+    </LayoutHorizontal>
+    <LayoutHorizontal>
+      <LayoutLabel id="label4">Hello Second Line</LayoutLabel>
+    </LayoutHorizontal>
+  </LayoutVertical>
 
   <Label1 y ="350" width="100" height="40">错误的标签</Label1>
 </GUI>

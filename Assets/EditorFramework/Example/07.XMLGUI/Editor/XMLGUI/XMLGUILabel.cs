@@ -12,9 +12,9 @@ namespace EditorFramework.Example.XMLGUI.Editor
 
         }
 
-        public override void ParseXML(XmlElement xmlElement)
+        public override void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
-            base.ParseXML(xmlElement);
+            base.ParseXML(xmlElement, rootXMLGUI);
 
             Text = xmlElement.InnerText;
         }

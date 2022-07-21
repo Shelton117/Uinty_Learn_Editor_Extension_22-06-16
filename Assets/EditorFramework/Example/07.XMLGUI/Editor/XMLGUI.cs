@@ -8,7 +8,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
     /// <summary>
     /// 组件处理、绘制
     /// </summary>
-    public class XMLGUI : MonoBehaviour
+    public class XMLGUI
     {
         private List<XMLGUIBase> mGUIBases = new List<XMLGUIBase>();
 
@@ -49,9 +49,11 @@ namespace EditorFramework.Example.XMLGUI.Editor
                 {"TextArea", () => new XMLGUITextArea()},
                 {"Button", () => new XMLGUIButton()},
 
-                {"LayoutLabel", () => new XMLGUILayoutLabel()}, // 例子后续略 TODO:兼容GUI
+                {"LayoutLabel", () => new XMLGUILayoutLabel()}, 
+                {"LayoutButton", () => new XMLGUILayoutButton()}, // 例子后续略 TODO:兼容GUI
 
                 {"LayoutHorizontal", () => new XMLGUILayoutHorizontal()},
+                {"LayoutVertical", () => new XMLGUILayoutVertical()},
             };
 
         public void ReadXML(string xml)
@@ -61,10 +63,11 @@ namespace EditorFramework.Example.XMLGUI.Editor
             doc.LoadXml(xml);
             var rootNode = doc.SelectSingleNode("GUI");
 
-            ChildElements2GUIBase(rootNode as XmlElement);
+            // GUI 标签才是根节点
+            ChildElements2GUIBase(rootNode as XmlElement, this);
         }
 
-        public void ChildElements2GUIBase(XmlElement rootElement)
+        public void ChildElements2GUIBase(XmlElement rootElement, XMLGUI rootXMLGUI)
         {
             Func<XMLGUIBase> xmlGUIBaseFactory;
 
@@ -73,9 +76,9 @@ namespace EditorFramework.Example.XMLGUI.Editor
                 if (mFactoriesForGUIBaseNames.TryGetValue(rootNodeChildNode.Name, out xmlGUIBaseFactory))
                 {
                     var mXMLGUIBase = xmlGUIBaseFactory.Invoke();
-                    mXMLGUIBase.ParseXML(rootNodeChildNode);
+                    mXMLGUIBase.ParseXML(rootNodeChildNode, rootXMLGUI);
 
-                    AddGUIBase(mXMLGUIBase);
+                    AddGUIBase(mXMLGUIBase, rootXMLGUI);
                 }
                 else
                 {
@@ -84,13 +87,23 @@ namespace EditorFramework.Example.XMLGUI.Editor
             }
         }
 
-        private void AddGUIBase(XMLGUIBase xmlguiBase)
+        /// <summary>
+        /// 注册id
+        /// </summary>
+        /// <param name="xmlguiBase">GUI组件对象</param>
+        /// <param name="rootXMLGUI">根节点对象</param>
+        private void AddGUIBase(XMLGUIBase xmlguiBase, XMLGUI rootXMLGUI)
         {
             mGUIBases.Add(xmlguiBase);
 
             if (!string.IsNullOrEmpty(xmlguiBase.Id))
             {
                 mGUIBasesForId.Add(xmlguiBase.Id, xmlguiBase);
+
+                if (rootXMLGUI != this)
+                {
+                    rootXMLGUI.mGUIBasesForId.Add(xmlguiBase.Id, xmlguiBase);
+                }
             }
         }
     }

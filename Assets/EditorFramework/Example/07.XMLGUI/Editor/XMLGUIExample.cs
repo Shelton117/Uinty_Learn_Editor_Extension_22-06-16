@@ -22,13 +22,11 @@ namespace EditorFramework.Example.XMLGUI.Editor
             mXmlgui = new XMLGUI();
             mXmlgui.ReadXML(mXmlContent);
 
-            var firstLine = mXmlgui.GetGUIBaseById<XMLGUILayoutHorizontal>("firstLine");
-
-            firstLine.Xmlgui.GetGUIBaseById<XMLGUIButton>("loginButton").Onclick += () =>
+            mXmlgui.GetGUIBaseById<XMLGUILayoutButton>("loginButton").Onclick += () =>
             {
-                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label1").Text = "1";
-                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label2").Text = "2";
-                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label3").Text = "3";
+                mXmlgui.GetGUIBaseById<XMLGUILayoutLabel>("label1").Text = "1";
+                mXmlgui.GetGUIBaseById<XMLGUILayoutLabel>("label2").Text = "2";
+                mXmlgui.GetGUIBaseById<XMLGUILayoutLabel>("label3").Text = "3";
 
                 Debug.Log("Button OnClick");
             };

@@ -5,16 +5,16 @@ namespace EditorFramework.Example.XMLGUI.Editor
 {
     public class XMLGUILayoutLabel : XMLGUIBase
     {
-        private string Text;
+        public string Text;
 
         protected override void OnDispose()
         {
 
         }
 
-        public override void ParseXML(XmlElement xmlElement)
+        public override void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
-            base.ParseXML(xmlElement);
+            base.ParseXML(xmlElement, rootXMLGUI);
 
             Text = xmlElement.InnerText;
         }

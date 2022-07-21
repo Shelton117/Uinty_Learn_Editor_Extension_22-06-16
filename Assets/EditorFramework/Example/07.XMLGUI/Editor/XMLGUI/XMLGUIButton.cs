@@ -6,14 +6,14 @@ namespace EditorFramework.Example.XMLGUI.Editor
 {
     public class XMLGUIButton : XMLGUIBase
     {
-        public override void ParseXML(XmlElement xmlElement)
+        public override void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
-            base.ParseXML(xmlElement);
+            base.ParseXML(xmlElement, rootXMLGUI);
 
             Text = xmlElement.InnerText;
         }
 
-        private string Text;
+        public string Text;
         public Action Onclick;
 
         protected override void OnDispose()
