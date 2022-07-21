@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Xml;
 using EditorFramework.Editor;
 using UnityEditor;
 using UnityEngine;
@@ -19,22 +17,26 @@ namespace EditorFramework.Example.XMLGUI.Editor
         private void OnEnable()
         {
             var xmlFileAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(XMLFilePath);
+
             mXmlContent = xmlFileAsset.text;
             mXmlgui = new XMLGUI();
             mXmlgui.ReadXML(mXmlContent);
 
-            mXmlgui.GetGUIBaseById<XMLGUIButton>("loginButton").Onclick += () =>
+            var firstLine = mXmlgui.GetGUIBaseById<XMLGUILayoutHorizontal>("firstLine");
+
+            firstLine.Xmlgui.GetGUIBaseById<XMLGUIButton>("loginButton").Onclick += () =>
             {
+                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label1").Text = "1";
+                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label2").Text = "2";
+                firstLine.Xmlgui.GetGUIBaseById<XMLGUILabel>("label3").Text = "3";
+
                 Debug.Log("Button OnClick");
             };
         }
 
         private void OnGUI()
         {
-            foreach (var guiBase in mXmlgui.GUIBases)
-            {
-                guiBase.OnGUI(default);
-            }
+            mXmlgui.Draw();
         }
     }
 }

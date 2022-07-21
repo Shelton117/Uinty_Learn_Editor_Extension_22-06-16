@@ -8,8 +8,8 @@ namespace EditorFramework.Editor
     /// </summary>
     public abstract class GUIBase:IDisposable
     {
-        public bool mDisposed { get; private set; }
-        public Rect mPosition { get; private set; }
+        protected bool mDisposed { get; private set; }
+        protected Rect mPosition { get; set; }
 
         public virtual void OnGUI(Rect position)
         {

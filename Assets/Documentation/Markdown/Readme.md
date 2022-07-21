@@ -1,5 +1,11 @@
 # 实践日志
 
+### v 0.0.12
+
+- [x] 区分GUI Layout和GUI
+- [x] 优化脚本
+- [ ] Horizontal & Vertical
+
 ### v 0.0.11
 
 - [x] 使用XML去写界面

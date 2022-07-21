@@ -1,12 +1,15 @@
+using System.Xml;
 using UnityEngine;
 
 namespace EditorFramework.Example.XMLGUI.Editor
 {
-    public class XMLGUILabel : XMLGUIBase
+    public class XMLGUITextArea : XMLGUIBase
     {
-        public XMLGUILabel(string text)
+        public override void ParseXML(XmlElement xmlElement)
         {
-            Text = text;
+            base.ParseXML(xmlElement);
+
+            Text = xmlElement.InnerText;
         }
 
         private string Text;
@@ -20,7 +23,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
         {
             base.OnGUI(position);
 
-            GUILayout.Label(Text);
+            Text = GUI.TextArea(position, Text);
         }
     }
 }

@@ -1,13 +1,16 @@
 using System;
+using System.Xml;
 using UnityEngine;
 
 namespace EditorFramework.Example.XMLGUI.Editor
 {
     public class XMLGUIButton : XMLGUIBase
     {
-        public XMLGUIButton(string text)
+        public override void ParseXML(XmlElement xmlElement)
         {
-            Text = text;
+            base.ParseXML(xmlElement);
+
+            Text = xmlElement.InnerText;
         }
 
         private string Text;
@@ -22,7 +25,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
         {
             base.OnGUI(position);
 
-            if (GUILayout.Button(Text))
+            if (GUI.Button(position, Text))
             {
                 Onclick?.Invoke();
             }
