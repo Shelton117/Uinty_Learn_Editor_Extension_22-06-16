@@ -1,10 +1,15 @@
 # 实践日志
 
+### v 0.0.13
+
+- [ ] StringConvert改进
+
 ### v 0.0.12
 
 - [x] 区分GUI Layout和GUI
 - [x] 优化脚本
-- [ ] Horizontal & Vertical
+- [x] Horizontal & Vertical
+- [x] box
 
 ### v 0.0.11
 

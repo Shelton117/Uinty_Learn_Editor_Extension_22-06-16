@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GUI>
-  <LayoutVertical>
+  <LayoutVertical box="true">
     <LayoutHorizontal>
       <LayoutLabel id="label1">Hello XMLGUILayout</LayoutLabel>
       <LayoutLabel id="label2">Hello XMLGUILayout2</LayoutLabel>
       <LayoutLabel id="label3">Hello XMLGUILayout3</LayoutLabel>
       <LayoutButton id="loginButton">Button Click</LayoutButton>
     </LayoutHorizontal>
-    <LayoutHorizontal>
+    <LayoutHorizontal box="true">
       <LayoutLabel id="label4">Hello Second Line</LayoutLabel>
     </LayoutHorizontal>
   </LayoutVertical>

@@ -7,6 +7,23 @@ namespace EditorFramework.Example.XMLGUI.Editor
     {
         public string Id { get; set; }
 
+        protected T GetAttributeValue<T>(XmlElement xmlElement, string attributeName)
+        {
+            var attributeValue = xmlElement.GetAttribute(attributeName);
+
+            if (string.IsNullOrEmpty(attributeValue))
+            {
+                T result;
+                if (attributeValue.TryConvert<T>(out result))
+                {
+                    return result;
+                }
+            }
+            
+
+            return default;
+        }
+
         public Rect rect
         {
             set { mPosition = value; }
