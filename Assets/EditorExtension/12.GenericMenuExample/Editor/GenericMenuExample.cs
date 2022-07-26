@@ -8,7 +8,7 @@ namespace EditorExtension.GenericMenuExample.Editor
     /// </summary>
     public class GenericMenuExample : EditorWindow
     {
-        [MenuItem("EditorExtension/07.GenericMenu/Open")]
+        [MenuItem("EditorExtension/08.GenericMenu/Open")]
         static void Open()
         {
             GetWindow<GenericMenuExample>().Show();
