@@ -1,4 +1,5 @@
 using System.Xml;
+using EditorFramework.Example.XMLGUI.Editor.XMLUtility;
 using UnityEngine;
 
 namespace EditorFramework.Example.XMLGUI.Editor
@@ -11,9 +12,9 @@ namespace EditorFramework.Example.XMLGUI.Editor
         {
             var attributeValue = xmlElement.GetAttribute(attributeName);
 
-            if (string.IsNullOrEmpty(attributeValue))
+            if (!string.IsNullOrEmpty(attributeValue))
             {
-                T result;
+                T result = default;
                 if (attributeValue.TryConvert<T>(out result))
                 {
                     return result;
@@ -26,6 +27,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
 
         public Rect rect
         {
+            get { return mPosition; }
             set { mPosition = value; }
         }
 
@@ -40,25 +42,26 @@ namespace EditorFramework.Example.XMLGUI.Editor
         /// <param name="xmlElement">xml标签内的值以及标签里的属性</param>
         public virtual void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
-            var id = xmlElement.GetAttribute("id");
+            Id = GetAttributeValue<string>(xmlElement, "id");
 
-            var width = !string.IsNullOrEmpty(xmlElement.GetAttribute("width"))
-                ? float.Parse(xmlElement.GetAttribute("width"))
-                : 0;
-            var height = !string.IsNullOrEmpty(xmlElement.GetAttribute("height"))
-                ? float.Parse(xmlElement.GetAttribute("height"))
-                : 0;
-            var x = !string.IsNullOrEmpty(xmlElement.GetAttribute("x"))
-                ? float.Parse(xmlElement.GetAttribute("x"))
-                : 0;
-            var y = !string.IsNullOrEmpty(xmlElement.GetAttribute("y"))
-                ? float.Parse(xmlElement.GetAttribute("y"))
-                : 0;
+            //var width = !string.IsNullOrEmpty(xmlElement.GetAttribute("width"))
+            //    ? float.Parse(xmlElement.GetAttribute("width"))
+            //    : 0;
+            var width = GetAttributeValue<float>(xmlElement, "width") == 0
+                ? 100
+                : GetAttributeValue<float>(xmlElement, "width");
+            var height = GetAttributeValue<float>(xmlElement, "height") == 0
+                ? 40
+                : GetAttributeValue<float>(xmlElement, "height");
+            var x = GetAttributeValue<float>(xmlElement, "x");
+            var y = GetAttributeValue<float>(xmlElement, "y");
 
-            if (!string.IsNullOrEmpty(id))
-            {
-                Id = id;
-            }
+            //var id = xmlElement.GetAttribute("id");
+
+            //if (!string.IsNullOrEmpty(id))
+            //{
+            //    Id = id;
+            //}
 
             rect = new Rect(x, y, width, height);
         }

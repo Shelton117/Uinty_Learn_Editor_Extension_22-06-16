@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EditorFramework.Example.XMLGUI.Editor
+namespace EditorFramework.Example.XMLGUI.Editor.XMLUtility
 {
     public abstract class StringConverter
     {
-        private  static Dictionary<Type, StringConverter> mConverterMap = new Dictionary<Type, StringConverter>()
+        private static Dictionary<Type, StringConverter> mConverterMap = new Dictionary<Type, StringConverter>()
         {
-            { typeof(Rect),new RectStringConverter()},
+            {typeof(Rect), new RectStringConverter()},
+            {typeof(string), new StringStringConverter()},
+            {typeof(float), new FloatStringConverter()},
+            {typeof(bool), new BooleanStringConverter()},
+
         };
 
         public static StringConverter<T> Get<T>()

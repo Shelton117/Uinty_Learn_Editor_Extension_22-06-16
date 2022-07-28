@@ -19,7 +19,7 @@ namespace EditorFramework.Example.XMLGUI.Editor
             {
                 GUILayout.BeginVertical();
             }
-            
+
             {
                 Xmlgui.Draw();
             }
@@ -30,12 +30,14 @@ namespace EditorFramework.Example.XMLGUI.Editor
         {
             base.ParseXML(xmlElement, rootXMLGUI);
 
-            var boxString = xmlElement.GetAttribute("box");
+            //var boxString = xmlElement.GetAttribute("box");
 
-            if (!string.IsNullOrEmpty(boxString))
-            {
-                Box = bool.Parse(boxString);
-            }
+            //if (!string.IsNullOrEmpty(boxString))
+            //{
+            //    Box = bool.Parse(boxString);
+            //}
+
+            Box = GetAttributeValue<bool>(xmlElement, "box");
         }
     }
 }

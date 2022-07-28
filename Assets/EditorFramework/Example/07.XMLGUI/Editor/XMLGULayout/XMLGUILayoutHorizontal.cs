@@ -29,13 +29,15 @@ namespace EditorFramework.Example.XMLGUI.Editor
         public override void ParseXML(XmlElement xmlElement, XMLGUI rootXMLGUI)
         {
             base.ParseXML(xmlElement, rootXMLGUI);
-            
-            var boxString = xmlElement.GetAttribute("box");
 
-            if (!string.IsNullOrEmpty(boxString))
-            {
-                Box = bool.Parse(boxString);
-            }
+            //var boxString = xmlElement.GetAttribute("box");
+
+            //if (!string.IsNullOrEmpty(boxString))
+            //{
+            //    Box = bool.Parse(boxString);
+            //}
+
+            Box = GetAttributeValue<bool>(xmlElement, "box");
         }
     }
 }

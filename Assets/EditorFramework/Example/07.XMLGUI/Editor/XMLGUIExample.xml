@@ -12,5 +12,6 @@
     </LayoutHorizontal>
   </LayoutVertical>
 
+  <Label id="label5">label without layout</Label>
   <Label1 y ="350" width="100" height="40">错误的标签</Label1>
 </GUI>

@@ -28,6 +28,9 @@ namespace EditorFramework.Example.XMLGUI.Editor
                 mXmlgui.GetGUIBaseById<XMLGUILayoutLabel>("label2").Text = "2";
                 mXmlgui.GetGUIBaseById<XMLGUILayoutLabel>("label3").Text = "3";
 
+                var label = mXmlgui.GetGUIBaseById<XMLGUILabel>("label5");
+                label.Text = label.rect.x + ":" + label.rect.y + "  " + label.rect.width + ":" + label.rect.height;
+
                 Debug.Log("Button OnClick");
             };
         }
