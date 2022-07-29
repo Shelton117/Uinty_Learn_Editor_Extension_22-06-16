@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EditorFramework.Example.XMLGUI.Editor.XMLUtility
+namespace EditorFramework.Editor.StringConverter
 {
     public abstract class StringConverter
     {

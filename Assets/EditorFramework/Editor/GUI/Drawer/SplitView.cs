@@ -1,8 +1,10 @@
 using System;
+using EditorFramework.Editor.GUI.Base;
+using EditorFramework.Editor.Tools;
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.GUI.Drawer
 {
     /// <summary>
     /// ¿ÉÍÏ×§µÄ´°¿Ú

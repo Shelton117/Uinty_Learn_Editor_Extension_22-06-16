@@ -1,4 +1,5 @@
 using EditorFramework.Editor;
+using EditorFramework.Editor.Tools;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,11 +11,11 @@ namespace EditorFramework.Example.SplitView.Editor
     [CustomEditorWindow((int)ExampleIndex.SplitView)]
     public class SplitViewExample : EditorWindow
     {
-        private EditorFramework.Editor.SplitView mSplitView;
+        private EditorFramework.Editor.GUI.Drawer.SplitView mSplitView;
 
         private void OnEnable()
         {
-            mSplitView = new EditorFramework.Editor.SplitView(RectExtension.SplitType.Horizontal);
+            mSplitView = new EditorFramework.Editor.GUI.Drawer.SplitView(RectExtension.SplitType.Horizontal);
 
             mSplitView.FirstArea += SplitViewOnFirstArea;
             mSplitView.SecondArea += SplitViewOnSecondArea;

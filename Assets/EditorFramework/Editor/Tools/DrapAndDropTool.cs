@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.Tools
 {
     /// <summary>
     /// ÍÏ×§¹¤¾ß Àà

@@ -1,10 +1,10 @@
 using System.Xml;
-using EditorFramework.Example.XMLGUI.Editor.XMLUtility;
+using EditorFramework.Editor.StringConverter;
 using UnityEngine;
 
 namespace EditorFramework.Example.XMLGUI.Editor
 {
-    public abstract class XMLGUIBase : EditorFramework.Editor.GUIBase
+    public abstract class XMLGUIBase : EditorFramework.Editor.GUI.Base.GUIBase
     {
         public string Id { get; set; }
 

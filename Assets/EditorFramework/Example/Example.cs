@@ -13,5 +13,6 @@ namespace EditorFramework.Example
         FolderField = 5,
         SplitView = 6,
         XMLGUI = 7,
+        SearchField = 8,
     }
 }

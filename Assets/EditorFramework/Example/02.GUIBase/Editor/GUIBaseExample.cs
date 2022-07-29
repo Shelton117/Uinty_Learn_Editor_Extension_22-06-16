@@ -7,7 +7,7 @@ namespace EditorFramework.Example.GUIBase.Editor
     [CustomEditorWindow((int)ExampleIndex.GUIBase)]
     public class GUIBaseExample : EditorWindow
     {
-        public class Label : EditorFramework.Editor.GUIBase
+        public class Label : EditorFramework.Editor.GUI.Base.GUIBase
         {
             public Label(string text)
             {

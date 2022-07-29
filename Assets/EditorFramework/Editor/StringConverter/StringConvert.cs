@@ -1,4 +1,4 @@
-namespace EditorFramework.Example.XMLGUI.Editor.XMLUtility
+namespace EditorFramework.Editor.StringConverter
 {
     public static class StringConvert
     {

@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.Tools
 {
     /// <summary>
     /// ×Ö·û´®£¨¾²Ì¬£©À©Õ¹

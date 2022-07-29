@@ -1,4 +1,6 @@
 using System;
+using EditorFramework.Editor.GUI.Base;
+using EditorFramework.Editor.Tools;
 using UnityEditor;
 using UnityEngine;
 
@@ -41,14 +43,14 @@ namespace EditorFramework.Editor
             var leftRect = rects[0];
             var rightRect = rects[1];
 
-            var currentGUIEnabled = GUI.enabled;
-            GUI.enabled = false;
+            var currentGUIEnabled = UnityEngine.GUI.enabled;
+            UnityEngine.GUI.enabled = false;
             {
                 EditorGUI.TextField(leftRect, mPath);
             }
-            GUI.enabled = currentGUIEnabled;
+            UnityEngine.GUI.enabled = currentGUIEnabled;
 
-            if (GUI.Button(rightRect, GUIContents.Folder))
+            if (UnityEngine.GUI.Button(rightRect, GUIContents.Folder))
             {
                 var path = EditorUtility.OpenFolderPanel(Title, Folder, DefaultName);
                 mPath = path == String.Empty && path.IsDirectory() // 过滤文件
@@ -58,7 +60,7 @@ namespace EditorFramework.Editor
             }
 
             // 拖拽部分
-            var dragInfo = EditorFramework.Editor.DrapAndDropTool.Drag(Event.current, position);
+            var dragInfo = DrapAndDropTool.Drag(Event.current, position);
             if (dragInfo.enterArea && dragInfo.complete && !dragInfo.dragging
                 && dragInfo.paths[0].IsDirectory())
             {

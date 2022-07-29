@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.Tools
 {
     /// <summary>
     /// 编辑器窗口工具 类

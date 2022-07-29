@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.GUI.Base
 {
     /// <summary>
     /// ¼òÒ×µÄGUI¿ò¼Ü

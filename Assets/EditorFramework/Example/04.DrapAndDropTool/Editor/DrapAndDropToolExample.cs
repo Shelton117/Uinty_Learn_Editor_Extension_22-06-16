@@ -28,7 +28,7 @@ namespace EditorFramework.Example.DrapAndDropTool.Editor
             var mRect = new Rect(10, 10, 300, 300);
             GUI.Box(mRect, "Drap anything");
 
-            var info = EditorFramework.Editor.DrapAndDropTool.Drag(Event.current, mRect);
+            var info = EditorFramework.Editor.Tools.DrapAndDropTool.Drag(Event.current, mRect);
 
             if (info.enterArea && info.complete && !info.dragging)
             {

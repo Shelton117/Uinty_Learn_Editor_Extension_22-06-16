@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EditorFramework.Editor
+namespace EditorFramework.Editor.Tools
 {
     /// <summary>
     /// Rect£¨¾²Ì¬£©À©Õ¹

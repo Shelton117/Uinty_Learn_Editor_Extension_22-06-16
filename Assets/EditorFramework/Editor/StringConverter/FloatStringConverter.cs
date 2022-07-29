@@ -1,4 +1,4 @@
-namespace EditorFramework.Example.XMLGUI.Editor.XMLUtility
+namespace EditorFramework.Editor.StringConverter
 {
     public class FloatStringConverter : StringConverter<float>
     {
